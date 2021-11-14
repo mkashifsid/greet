@@ -44,4 +44,4 @@ def save_name():
     return "I'll try to remember your name, {}!".format(user.get("name"))
 
 
-app.run(port=8080)
+app.run(host="0.0.0.0", port=8080)
