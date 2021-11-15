@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greet
+spec:
+  selector:
+    matchLabels:
+      app: greet
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  template:
+    metadata:
+      labels:
+        app: greet
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: greet
+        image: docker.io/kashifsiddiqui/xxx
+        ports:
+          - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
